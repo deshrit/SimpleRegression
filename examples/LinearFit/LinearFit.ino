@@ -102,7 +102,7 @@ void setup() {
   Serial.print(lf2.predict(12));
 
   // Predict many
-  float yPred2[TEST_SIZE2] = {0.0};
+  double yPred2[TEST_SIZE2];
   lf2.predictMany(xTest2, yPred2, TEST_SIZE2);
 
   // Evaluate

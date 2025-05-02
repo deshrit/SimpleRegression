@@ -27,12 +27,12 @@ public:
 
   // Prediction
   double predict(T x) const;
-  void predictMany(const T x[], U y[], const size_t size) const;
+  void predictMany(const T x[], double y[], const size_t size) const;
 
   // Evaluation
-  double MSE(const U y[], const U yHat[],
+  double MSE(const U y[], const double yPred[],
              const size_t size) const; // Mean Squared Error
-  double R2Score(const U y[], const U yHat[],
+  double R2Score(const U y[], const double yPred[],
                  const size_t size) const; // Coefficient of Determination
 };
 
@@ -114,7 +114,7 @@ template <typename T, typename U> double LinearFit<T, U>::predict(T x) const {
 }
 
 template <typename T, typename U>
-void LinearFit<T, U>::predictMany(const T xTest[], U yPred[],
+void LinearFit<T, U>::predictMany(const T xTest[], double yPred[],
                                   const size_t size) const {
   for (size_t i = 0; i < size; i++)
     yPred[i] = predict(xTest[i]);
@@ -122,7 +122,7 @@ void LinearFit<T, U>::predictMany(const T xTest[], U yPred[],
 
 // Evaluation
 template <typename T, typename U>
-double LinearFit<T, U>::MSE(const U y[], const U yPred[],
+double LinearFit<T, U>::MSE(const U y[], const double yPred[],
                             const size_t size) const {
   double sum = 0.0;
   for (size_t i = 0; i < size; i++) {
@@ -132,7 +132,7 @@ double LinearFit<T, U>::MSE(const U y[], const U yPred[],
 }
 
 template <typename T, typename U>
-double LinearFit<T, U>::R2Score(const U y[], const U yPred[],
+double LinearFit<T, U>::R2Score(const U y[], const double yPred[],
                                 const size_t size) const {
   double yBar, R2, sum = 0.0, sum2 = 0.0;
   for (size_t i = 0; i < size; i++) {
