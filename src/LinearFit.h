@@ -27,12 +27,12 @@ public:
 
   // Prediction
   double predict(T x) const;
-  void predictMany(const T x[], double y[], const size_t size) const;
+  void predictMany(const T xTest[], double yPred[], const size_t size) const;
 
   // Evaluation
-  double MSE(const U y[], const double yPred[],
+  double MSE(const U yTest[], const double yPred[],
              const size_t size) const; // Mean Squared Error
-  double R2Score(const U y[], const double yPred[],
+  double R2Score(const U yTest[], const double yPred[],
                  const size_t size) const; // Coefficient of Determination
 };
 
@@ -122,28 +122,28 @@ void LinearFit<T, U>::predictMany(const T xTest[], double yPred[],
 
 // Evaluation
 template <typename T, typename U>
-double LinearFit<T, U>::MSE(const U y[], const double yPred[],
+double LinearFit<T, U>::MSE(const U yTest[], const double yPred[],
                             const size_t size) const {
   double sum = 0.0;
   for (size_t i = 0; i < size; i++) {
-    sum += sq(y[i] - yPred[i]);
+    sum += sq(yTest[i] - yPred[i]);
   }
   return sum / size;
 }
 
 template <typename T, typename U>
-double LinearFit<T, U>::R2Score(const U y[], const double yPred[],
+double LinearFit<T, U>::R2Score(const U yTest[], const double yPred[],
                                 const size_t size) const {
   double yBar, R2, sum = 0.0, sum2 = 0.0;
   for (size_t i = 0; i < size; i++) {
-    sum += y[i];
+    sum += yTest[i];
   }
   yBar = sum / size;
 
   sum = 0.0;
   for (size_t i = 0; i < size; i++) {
-    sum += sq(y[i] - yPred[i]);
-    sum2 += sq(y[i] - yBar);
+    sum += sq(yTest[i] - yPred[i]);
+    sum2 += sq(yTest[i] - yBar);
   }
   R2 = 1 - (sum / sum2);
   return R2;
