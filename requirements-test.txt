@@ -1,3 +1,0 @@
-jupyterlab
-scikit-learn
-matplotlib

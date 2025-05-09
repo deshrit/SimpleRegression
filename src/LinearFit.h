@@ -101,11 +101,11 @@ void LinearFit<T, U>::fit(const T x[], const U y[], const size_t size) {
 
 // Coefficients
 template <typename T, typename U> double LinearFit<T, U>::slope() const {
-  return sol[0];
+  return sol[1];
 }
 
 template <typename T, typename U> double LinearFit<T, U>::intercept() const {
-  return sol[1];
+  return sol[0];
 }
 
 // Prediction

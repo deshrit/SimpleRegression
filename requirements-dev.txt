@@ -1,1 +1,8 @@
+# docs
 pre-commit
+mkdocs-material
+
+# validate
+jupyterlab
+scikit-learn
+matplotlib
