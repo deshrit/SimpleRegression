@@ -4,10 +4,16 @@ repos:
   rev: v4.4.0
   hooks:
   - id: trailing-whitespace
+    exclude:  \b[\w\-/\\\.]+\.ipynb\b
+
   - id: end-of-file-fixer
+    exclude:  \b[\w\-/\\\.]+\.ipynb\b
+
   - id: check-added-large-files
+    exclude:  \b[\w\-/\\\.]+\.ipynb\b
 
 - repo: https://github.com/pre-commit/mirrors-clang-format
   rev: v20.1.0
   hooks:
   - id: clang-format
+    exclude:  \b[\w\-/\\\.]+\.ipynb\b
