@@ -1,13 +1,13 @@
 #include <LinearFit.h>
 
-// Dataset1
 const size_t TRAIN_SIZE = 52;
-const size_t TEST_SIZE = 8;
+
 int xTrain[TRAIN_SIZE] = {-30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20,
                           -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9,
                           -8,  -7,  -6,  -5,  -4,  -3,  -2,  -1,  0,   1,   2,
                           3,   4,   5,   6,   7,   8,   9,   10,  11,  12,  13,
                           14,  15,  16,  17,  18,  19,  20,  21};
+
 double yTrain[TRAIN_SIZE] = {
     -89.9680839,  -80.6740871,  -94.36381044, -82.56689579, -64.28212183,
     -61.14827644, -88.97658758, -82.71028487, -85.94131187, -67.36760625,
@@ -20,14 +20,16 @@ double yTrain[TRAIN_SIZE] = {
     24.26079666,  29.75760995,  24.76942313,  28.67171097,  38.30745597,
     57.42135652,  49.45011618,  40.3395145,   43.11910026,  53.18488302,
     46.21641378,  49.05514844};
+
+const size_t TEST_SIZE = 8;
+
 int xTest[TEST_SIZE] = {22, 23, 24, 25, 26, 27, 28, 29};
+
 double yTest[TEST_SIZE] = {64.56140239, 50.48917475, 69.34342129, 67.4870485,
                            84.30746487, 88.86984892, 89.64371687, 92.56721655};
 
 void setup() {
   Serial.begin(9600);
-
-  // For Dataset1
 
   // Model
   LinearFit<int, double> lf;
@@ -36,7 +38,7 @@ void setup() {
   // Coefficients
   Serial.print("Slope: ");
   Serial.print(lf.slope());
-  Serial.print("\tIntercept: ");
+  Serial.print("\nIntercept: ");
   Serial.print(lf.intercept());
 
   // Predict
@@ -50,7 +52,7 @@ void setup() {
   // Evaluate
   Serial.print("\nMAE(Mean Absolute Error): ");
   Serial.print(lf.MAE(yTest, yPred, TEST_SIZE));
-  Serial.print("\tR2Score: ");
+  Serial.print("\nR2Score: ");
   Serial.print(lf.R2Score(yTest, yPred, TEST_SIZE));
 }
 

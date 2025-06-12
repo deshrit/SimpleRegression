@@ -1,6 +1,5 @@
 #include <ParabolicFit.h>
 
-// Dataset1
 const size_t TRAIN_SIZE = 52;
 
 int xTrain[TRAIN_SIZE] = {-30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20,
@@ -25,6 +24,7 @@ double yTrain[TRAIN_SIZE] = {
 const size_t TEST_SIZE = 8;
 
 int xTest[TEST_SIZE] = {22, 23, 24, 25, 26, 27, 28, 29};
+
 double yTest[TEST_SIZE] = {172.40350598, 149.22293688, 209.35855324,
                            218.71762124, 275.76866218, 303.17462231,
                            322.10929219, 347.41804138};
@@ -37,11 +37,12 @@ void setup() {
   pf.fit(xTrain, yTrain, TRAIN_SIZE);
 
   // Coefficients
-  Serial.print("\nFor ax^2 + bx + c the coefficients are, a: ");
+  Serial.print("For ax^2 + bx + c the coefficients are: ");
+  Serial.print("\na: ");
   Serial.print(pf.a());
-  Serial.print(",\tb: ");
+  Serial.print("\nb: ");
   Serial.print(pf.b());
-  Serial.print(",\tc: ");
+  Serial.print("\nc: ");
   Serial.print(pf.c());
 
   // Predict
