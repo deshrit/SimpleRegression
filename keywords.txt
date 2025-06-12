@@ -1,14 +1,12 @@
-AugmentedMatrix2D
-#################
 UNIQUE_SOLUTION	LITERAL1
 INFINITE_SOLUTIONS	LITERAL1
 NO_SOLUTION	LITERAL1
+
 AugmentedMatrix2D	KEYWORD1
-
-
-Linear fit
-##########
 LinearFit	KEYWORD1
+ParabolicFit	KEYWORD1
+ExponentialFit	KEYWORD1
+
 fit	KEYWORD2
 slope	KEYWORD2
 intercept	KEYWORD2
@@ -16,3 +14,6 @@ predict	KEYWORD2
 predictMany	KEYWORD2
 MAE	KEYWORD2
 R2Score	KEYWORD2
+a	KEYWORD2
+b	KEYWORD2
+c	KEYWORD2
