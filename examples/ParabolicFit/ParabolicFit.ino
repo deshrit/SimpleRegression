@@ -32,6 +32,8 @@ double yTest[TEST_SIZE] = {172.40350598, 149.22293688, 209.35855324,
 void setup() {
   Serial.begin(9600);
 
+  //  Fitting y = ax^2 + bx + c
+
   // Model
   ParabolicFit<int, double> pf;
   pf.fit(xTrain, yTrain, TRAIN_SIZE);

@@ -31,14 +31,16 @@ double yTest[TEST_SIZE] = {64.56140239, 50.48917475, 69.34342129, 67.4870485,
 void setup() {
   Serial.begin(9600);
 
+  //  Fitting y = m * x + c
+
   // Model
   LinearFit<int, double> lf;
   lf.fit(xTrain, yTrain, TRAIN_SIZE);
 
   // Coefficients
-  Serial.print("Slope: ");
+  Serial.print("Slope(m): ");
   Serial.print(lf.slope());
-  Serial.print("\nIntercept: ");
+  Serial.print("\nIntercept(c): ");
   Serial.print(lf.intercept());
 
   // Predict
