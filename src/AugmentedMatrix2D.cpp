@@ -177,3 +177,14 @@ void AugmentedMatrix2D::solve() {
   if (*solutionStatus == UNIQUE_SOLUTION)
     backSubstitution();
 }
+
+// void AugmentedMatrix2D::printMatrix() const {
+//     for(size_t i=0; i < this->rowSize; i++) {
+//         Serial.print("\n");
+//         for(size_t j=0; j < this->colSize; j++) {
+//             Serial.print(this->getElement(i, j));
+//             Serial.print("\t");
+//         }
+//         Serial.print("\n");
+//     }
+// }

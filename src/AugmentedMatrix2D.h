@@ -40,5 +40,7 @@ public:
                     unsigned int *status);
   ~AugmentedMatrix2D();
 
+  // void printMatrix() const;
+
   void solve();
 };
